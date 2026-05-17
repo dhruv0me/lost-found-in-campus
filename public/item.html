@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Item Detail — AICE Campus Lost & Found</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <div class="navbar-brand-text"><span class="navbar-title">Lost & Found</span><span class="navbar-subtitle">AICE Jaipur</span></div>
+      </a>
+      <div class="navbar-links" id="nav-links">
+        <a href="index.html" class="navbar-link">Home</a>
+        <a href="browse.html" class="navbar-link">Browse</a>
+        <a href="post.html" class="navbar-link">Post Item</a>
+        <a href="my-posts.html" class="navbar-link">My Posts</a>
+        <div class="navbar-cta"><a href="post.html" class="btn btn-primary btn-sm">Report Item</a></div>
+      </div>
+      <div class="navbar-toggle" id="nav-toggle" onclick="this.classList.toggle('open'); document.getElementById('nav-links').classList.toggle('open');"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <section class="section" style="padding-top: calc(68px + var(--space-8));">
+    <div class="container" id="item-detail-content">
+      <div class="item-detail">
+        <div class="skeleton" style="height:400px; border-radius: var(--radius-xl);"></div>
+        <div>
+          <div class="skeleton" style="width:100px; height:24px; margin-bottom:16px;"></div>
+          <div class="skeleton" style="width:80%; height:36px; margin-bottom:12px;"></div>
+          <div class="skeleton" style="width:60%; height:16px; margin-bottom:24px;"></div>
+          <div class="skeleton" style="height:160px;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--color-bg-soft);">
+    <div class="container">
+      <div class="section-header"><h2>Similar Items</h2></div>
+      <div class="grid-items" id="similar-items"></div>
+    </div>
+  </section>
+
+  <div class="modal-overlay" id="claim-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Claim This Item</h3>
+        <button class="modal-close" onclick="closeModal('claim-modal')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+      </div>
+      <div class="modal-body">
+        <p style="color: var(--color-text-muted); font-size: var(--text-sm); margin-bottom: var(--space-5);">Provide your details and proof of ownership.</p>
+        <form id="claim-form">
+          <div class="form-group" style="margin-bottom: var(--space-4);"><label class="form-label" for="claimant-name">Name <span class="required">*</span></label><input type="text" id="claimant-name" class="form-input" required></div>
+          <div class="form-group" style="margin-bottom: var(--space-4);"><label class="form-label" for="claimant-email">Email <span class="required">*</span></label><input type="email" id="claimant-email" class="form-input" required></div>
+          <div class="form-group" style="margin-bottom: var(--space-4);"><label class="form-label" for="claimant-phone">Phone</label><input type="tel" id="claimant-phone" class="form-input"></div>
+          <div class="form-group" style="margin-bottom: var(--space-4);"><label class="form-label" for="claimant-proof">Proof <span class="required">*</span></label><textarea id="claimant-proof" class="form-textarea" required style="min-height:100px;"></textarea></div>
+          <div style="display:flex;gap:var(--space-3);justify-content:flex-end;padding-top:var(--space-4);">
+            <button type="button" class="btn btn-secondary" onclick="closeModal('claim-modal')">Cancel</button>
+            <button type="submit" class="btn btn-primary">Submit Claim</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer"><div class="container"><div class="footer-bottom"><span>&copy; 2026 AICE Lost & Found</span><span>Built for AICE Students</span></div></div></footer>
+  <script src="js/icons.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/item.js"></script>
+  <script src="js/claim.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Items — AICE Campus Lost & Found</title>
+  <meta name="description" content="Browse and search lost and found items reported across Anand International College of Engineering campus.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <div class="navbar-brand-text">
+          <span class="navbar-title">Lost & Found</span>
+          <span class="navbar-subtitle">AICE Jaipur</span>
+        </div>
+      </a>
+      <div class="navbar-links" id="nav-links">
+        <a href="index.html" class="navbar-link">Home</a>
+        <a href="browse.html" class="navbar-link">Browse</a>
+        <a href="post.html" class="navbar-link">Post Item</a>
+        <a href="my-posts.html" class="navbar-link">My Posts</a>
+        <div class="navbar-cta"><a href="post.html" class="btn btn-primary btn-sm">Report Item</a></div>
+      </div>
+      <div class="navbar-toggle" id="nav-toggle" onclick="this.classList.toggle('open'); document.getElementById('nav-links').classList.toggle('open');"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Browse <span class="text-royal">Lost & Found</span> Items</h1>
+      <p>Search through items reported across AICE campus. Use filters to narrow your search.</p>
+    </div>
+  </div>
+
+  <section class="section-sm">
+    <div class="container" style="display:flex; justify-content:center;">
+      <div class="search-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="search-input" placeholder="Search for items... (e.g., blue backpack, laptop, keys)">
+        <button class="search-btn" onclick="document.getElementById('search-input').dispatchEvent(new Event('input'))">Search</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm" style="padding-top:0;">
+    <div class="container">
+      <div class="browse-layout">
+        <aside class="browse-sidebar">
+          <div class="browse-sidebar-section">
+            <div class="browse-sidebar-title">Type</div>
+            <div class="filter-group">
+              <button class="filter-chip" data-group="type" data-value="lost"><span class="badge-dot badge-dot-lost"></span> Lost</button>
+              <button class="filter-chip" data-group="type" data-value="found"><span class="badge-dot badge-dot-found"></span> Found</button>
+            </div>
+          </div>
+          <div class="browse-sidebar-section">
+            <div class="browse-sidebar-title">Category</div>
+            <div class="filter-group" id="category-filters"></div>
+          </div>
+          <div class="browse-sidebar-section">
+            <div class="browse-sidebar-title">Location</div>
+            <div class="filter-group" id="location-filters"></div>
+          </div>
+        </aside>
+
+        <div class="browse-main">
+          <div class="browse-toolbar">
+            <span class="browse-count" id="browse-count">Loading...</span>
+            <div class="browse-sort">
+              <select id="sort-select" class="form-select" style="padding:8px 36px 8px 12px;">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid-items" id="items-grid"></div>
+          <button class="btn btn-secondary load-more-btn" id="load-more-btn" style="display:none;">Load More Items</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 2026 AICE Campus Lost & Found</span>
+        <span>Built for AICE Students</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/icons.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>
